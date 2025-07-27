@@ -13,6 +13,7 @@ A modern Node.js TypeScript API with PostgreSQL database and Redis caching, cont
 - **Caching** - Intelligent Redis caching for improved performance
 - **Health Checks** - Built-in health monitoring
 - **ESLint & Prettier** - Code quality and formatting
+- **Console Logging** - Simple and efficient logging system
 
 ## 📋 Prerequisites
 
@@ -185,15 +186,33 @@ The Docker Compose setup automatically configures:
 ├── src/
 │   ├── services/
 │   │   ├── database.ts    # PostgreSQL operations
-│   │   └── cache.ts       # Redis operations
+│   │   ├── cache.ts       # Redis operations
+│   │   └── logger.ts      # Console-based logging
 │   ├── routes/
+│   │   ├── index.ts       # Main routes
 │   │   └── userRoutes.ts  # User API routes
+│   ├── types/
+│   │   └── index.ts       # TypeScript type definitions
 │   └── server.ts          # Main server file
 ├── docker-compose.yml     # Docker services configuration
 ├── Dockerfile            # Node.js application container
 ├── init.sql             # Database initialization script
+├── eslint.config.js     # ESLint configuration
+├── tsconfig.json        # TypeScript configuration
 └── package.json         # Dependencies and scripts
 ```
+
+## 📝 Logging
+
+The application uses a simple console-based logging system with the following levels:
+
+- `logger.error()` - For error messages
+- `logger.warn()` - For warning messages
+- `logger.info()` - For informational messages
+- `logger.http()` - For HTTP request logging
+- `logger.debug()` - For debug messages
+
+Each log entry includes a timestamp and appropriate console method (error, warn, info, etc.).
 
 ## 🧪 Testing the API
 
